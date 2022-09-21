@@ -1,0 +1,19 @@
+on: pull_request
+
+jobs:
+  eslint:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: usa a action de checkout
+        uses: actions/checkout@v2
+
+      - name: usa a action de setup-node e sua versão é a 12
+        uses: actions/setup-node@v1.4.4
+        with:
+          node-version: 12
+
+      - name: executa a instalação das dependências
+        run: npm install
+
+      - name: executa pacote eslint via npx
+        run: npx eslint 
